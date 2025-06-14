@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import pslogo from '../assets/pslogo.png';
@@ -7,7 +7,6 @@ import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
   const location = useLocation();
 
   const navItems = [
@@ -18,19 +17,11 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const opacity = Math.min(scrollY / 100, 0.95);
-
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 border-b border-border/40 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 border-b border-border/40 z-50"
       style={{
-        background: `rgba(var(--background) / ${0.1 + opacity * 0.9})`,
+        background: `rgba(var(--background) / 0.9)`,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
       }}

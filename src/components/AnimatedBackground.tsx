@@ -1,8 +1,10 @@
 
 import { useEffect, useRef } from 'react';
+import { useTheme } from './ThemeProvider';
 
 const AnimatedBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -41,19 +43,39 @@ const AnimatedBackground = () => {
       }
     };
 
+    const getSystemTheme = () => {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+
+    const getCurrentTheme = () => {
+      if (theme === 'system') {
+        return getSystemTheme();
+      }
+      return theme;
+    };
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Gradient background
+      const currentTheme = getCurrentTheme();
+      
+      // Theme-aware gradient background
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      gradient.addColorStop(0, 'rgba(147, 51, 234, 0.03)'); // purple
-      gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.02)'); // blue
-      gradient.addColorStop(1, 'rgba(147, 51, 234, 0.03)'); // purple
+      
+      if (currentTheme === 'dark') {
+        gradient.addColorStop(0, 'rgba(147, 51, 234, 0.08)'); // purple
+        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.06)'); // blue
+        gradient.addColorStop(1, 'rgba(147, 51, 234, 0.08)'); // purple
+      } else {
+        gradient.addColorStop(0, 'rgba(147, 51, 234, 0.03)'); // purple
+        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.02)'); // blue
+        gradient.addColorStop(1, 'rgba(147, 51, 234, 0.03)'); // purple
+      }
       
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Animate particles
+      // Theme-aware particles
       particles.forEach(particle => {
         particle.x += particle.dx;
         particle.y += particle.dy;
@@ -63,7 +85,13 @@ const AnimatedBackground = () => {
 
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(147, 51, 234, ${particle.opacity})`;
+        
+        if (currentTheme === 'dark') {
+          ctx.fillStyle = `rgba(147, 51, 234, ${particle.opacity * 1.5})`;
+        } else {
+          ctx.fillStyle = `rgba(147, 51, 234, ${particle.opacity})`;
+        }
+        
         ctx.fill();
       });
 
@@ -74,23 +102,42 @@ const AnimatedBackground = () => {
     createParticles();
     animate();
 
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       resizeCanvas();
       particles.length = 0;
       createParticles();
-    });
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [theme]);
+
+  const getSystemTheme = () => {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  };
+
+  const getCurrentTheme = () => {
+    if (theme === 'system') {
+      return getSystemTheme();
+    }
+    return theme;
+  };
+
+  const currentTheme = getCurrentTheme();
 
   return (
     <canvas
       ref={canvasRef}
       className="fixed inset-0 -z-10 pointer-events-none"
-      style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)' }}
+      style={{ 
+        background: currentTheme === 'dark' 
+          ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)' 
+          : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)'
+      }}
     />
   );
 };
