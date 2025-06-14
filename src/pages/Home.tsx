@@ -39,20 +39,20 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-purple-50 via-blue-50 to-white py-20 sm:py-32">
+      <section className="relative py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
               Innovative Solutions for
               <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                 Modern Business
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in">
               We help businesses grow and succeed with cutting-edge technology solutions, 
               expert consulting, and unparalleled support.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Link
                 to="/contact"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
@@ -72,7 +72,7 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -87,9 +87,13 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-8 bg-gray-50 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300 border border-gray-100"
+                className="group p-8 backdrop-blur-md bg-white/30 border border-white/20 rounded-xl hover:bg-white/40 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-500 transform hover:-translate-y-2 animate-fade-in"
+                style={{
+                  animationDelay: `${index * 0.2}s`,
+                  boxShadow: '0 8px 32px rgba(147, 51, 234, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                }}
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -98,6 +102,7 @@ const Home = () => {
                 <p className="text-gray-600">
                   {feature.description}
                 </p>
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-purple-400/0 via-purple-400/40 to-purple-400/0 group-hover:via-purple-400/60 transition-all duration-500" />
               </div>
             ))}
           </div>
@@ -105,23 +110,24 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
-            <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
+            <div className="group cursor-pointer">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">500+</div>
               <div className="text-purple-100">Projects Completed</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">98%</div>
+            <div className="group cursor-pointer">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">98%</div>
               <div className="text-purple-100">Client Satisfaction</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">5+</div>
+            <div className="group cursor-pointer">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">5+</div>
               <div className="text-purple-100">Years Experience</div>
             </div>
-            <div>
-              <div className="text-4xl font-bold mb-2">24/7</div>
+            <div className="group cursor-pointer">
+              <div className="text-4xl font-bold mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
               <div className="text-purple-100">Support Available</div>
             </div>
           </div>
@@ -129,7 +135,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -144,11 +150,14 @@ const Home = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-sm border border-gray-100"
+                className="group backdrop-blur-md bg-white/40 border border-white/20 p-8 rounded-xl hover:bg-white/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 transform hover:-translate-y-1"
+                style={{
+                  boxShadow: '0 8px 32px rgba(59, 130, 246, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+                }}
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: `${i * 0.1}s` }} />
                   ))}
                 </div>
                 <p className="text-gray-600 mb-4 italic">
@@ -158,6 +167,7 @@ const Home = () => {
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>
                   <div className="text-gray-500">{testimonial.company}</div>
                 </div>
+                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-blue-400/0 via-blue-400/40 to-blue-400/0 group-hover:via-blue-400/60 transition-all duration-500" />
               </div>
             ))}
           </div>
@@ -165,7 +175,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white/50 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             Ready to Transform Your Business?

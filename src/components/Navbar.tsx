@@ -1,10 +1,11 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const location = useLocation();
 
   const navItems = [
@@ -15,8 +16,22 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const opacity = Math.min(scrollY / 100, 1);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-50">
+    <nav 
+      className="fixed top-0 left-0 right-0 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300"
+      style={{
+        background: `rgba(255, 255, 255, ${0.1 + opacity * 0.85})`,
+        backdropFilter: 'blur(12px)',
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -37,8 +52,8 @@ const Navbar = () => {
                 to={item.path}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                   isActive(item.path)
-                    ? 'text-purple-600 bg-purple-50'
-                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                    ? 'text-purple-600 bg-purple-50/80'
+                    : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50/80'
                 }`}
               >
                 {item.name}
@@ -63,7 +78,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-100">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/90 backdrop-blur-md border-t border-gray-100/50 rounded-b-lg">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -71,8 +86,8 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'text-purple-600 bg-purple-50'
-                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50'
+                      ? 'text-purple-600 bg-purple-50/80'
+                      : 'text-gray-700 hover:text-purple-600 hover:bg-gray-50/80'
                   }`}
                 >
                   {item.name}
