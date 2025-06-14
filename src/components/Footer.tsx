@@ -22,7 +22,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Mail size={16} />
-                <span>contact@plutosolve.com</span>
+                <span><a href="mailto:contact@plutosolve.com">contact@plutosolve.com</a></span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone size={16} />
