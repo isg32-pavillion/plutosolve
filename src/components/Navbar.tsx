@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav 
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: `rgba(255, 255, 255, ${0.1 + opacity * 0.85})`,
+        background: `rgba(255, 255, 255, 0.1)`,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
       }}
