@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import AnimatedBackground from './AnimatedBackground';
 import MouseFollower from './MouseFollower';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { ThemeProvider } from './ThemeProvider';
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,15 +12,17 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col relative">
-      
-      <Navbar />
-      <main className="flex-grow pt-16 relative z-10">
-        <AnimatedBackground />
-        {children}
-        <Footer />
-      </main>
-    </div>
+    <ThemeProvider defaultTheme="system" storageKey="plutosolve-ui-theme">
+      <div className="min-h-screen flex flex-col relative bg-background text-foreground">
+        <MouseFollower />
+        <Navbar />
+        <main className="flex-grow pt-16 relative z-10">
+          <AnimatedBackground />
+          {children}
+          <Footer />
+        </main>
+      </div>
+    </ThemeProvider>
   );
 };
 
