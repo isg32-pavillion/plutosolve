@@ -23,16 +23,28 @@ const Home = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      company: "Tech Startup Inc.",
-      text: "PlutoSolve transformed our business processes. Highly recommended!",
-      rating: 5
+      name: "Value for money",
+      company: "AIMEN",
+      text: "Get results without breaking the bank. We deliver quality and cost-effective solutions.",
+      rating: 0
     },
     {
-      name: "Mike Chen",
-      company: "Growth Co.",
-      text: "Outstanding service and support. They exceeded our expectations.",
-      rating: 5
+      name: "End-to-End Solutions",
+      company: "Disha",
+      text: "From strategy to execution, we manage every step of your marketing journey.",
+      rating: 0
+    },
+    {
+      name: "Creative approach",
+      company: "AmarUjala",
+      text: "We bring fresh, innovative ideas that help your business stand out.",
+      rating: 0
+    },
+    {
+      name: "Industry Experience",
+      company: "Private Company",
+      text: "Our team is backed by industry veterans who offer insights and expertise.",
+      rating: 0
     }
   ];
 
@@ -42,15 +54,18 @@ const Home = () => {
       <section className="relative py-20 sm:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            <p className="text-xl text-gray-600 dark:text-white/50 max-w-3xl mx-auto mb-8 animate-fade-in">
+              <Link to='' className='text-sm bg-transparent px-2 py-2 rounded-3xl border border-white/10'> Digital Marketing </Link>
+            </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 animate-fade-in">
-              Innovative Solutions for
+              Make Us Part Of Your
               <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                Modern Business
+                Brand's Growth
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-white/50 max-w-3xl mx-auto mb-8 animate-fade-in">
               We help businesses grow and succeed with cutting-edge technology solutions, 
-              expert consulting, and unparalleled support.
+              expert consulting, and unparalleled support - All Online.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
               <Link
@@ -139,7 +154,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              What Our Clients Say
+              What our Clients say?
             </h2>
             <p className="text-xl text-gray-600 dark:text-white/50">
               Don't just take our word for it - hear from our satisfied clients.

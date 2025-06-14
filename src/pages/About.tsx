@@ -1,5 +1,8 @@
 
 import { Target, Heart, Lightbulb, Users } from 'lucide-react';
+import sapanpfp from "../assets/sapan.png";
+import rahulpfp from "../assets/Rahul.jpeg";
+import surajpfp from "../assets/suraj.jpg";
 
 const About = () => {
   const values = [
@@ -27,19 +30,25 @@ const About = () => {
 
   const team = [
     {
-      name: "Alex Rodriguez",
+      pfp: rahulpfp,
+      name: "Rahul Kushwah",
       role: "Founder & CEO",
-      bio: "10+ years of experience in digital transformation and business strategy."
+      job: "Management and Marketing",
+      bio: "8+ years of experience in Marketing and management, leading Plutosolve with vision and innovation."
     },
     {
-      name: "Sarah Kim",
-      role: "Technical Director",
-      bio: "Expert in full-stack development with a passion for innovative solutions."
+      pfp: surajpfp,
+      name: "Suraj Kushwaha",
+      role: "Co-Founder & CTO",
+      job: "Management",
+      bio: "Experience Tech Professional and Youtuber leading Tech Department."
     },
     {
-      name: "Michael Brown",
-      role: "Design Lead",
-      bio: "Creative visionary focused on user experience and beautiful interfaces."
+      pfp: sapanpfp,
+      name: "Sapan Gajjar",
+      role: "Web Developer",
+      job: "Tech",
+      bio: "Managing Website Development Projects"
     }
   ];
 
@@ -52,12 +61,11 @@ const About = () => {
             <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               About
               <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-                PlutoSolve
+                Plutosolve
               </span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-white/60 max-w-3xl mx-auto">
-              We're a passionate team of innovators dedicated to helping businesses thrive in the digital age 
-              through cutting-edge solutions and exceptional service.
+              Plutosolve is a digital marketing and web development agency dedicated to helping small and medium-sized businesses thrive. Whether you're building your brand from scratch, need a custom website, want to boost your SEO, or manage social media and ad campaigns, we've got you covered.
             </p>
           </div>
         </div>
@@ -72,12 +80,10 @@ const About = () => {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 dark:text-white/60 mb-6">
-                At PlutoSolve, we believe that every business deserves access to world-class technology solutions. 
-                Our mission is to bridge the gap between complex technical challenges and practical business outcomes.
+                 Our mission is to deliver results that truly offer value for your investment. At Plutosolve, you'll experience creative solutions that drive real, measurable growth. We are a team of passionate professionals dedicated to delivering exceptional services to our clients. 
               </p>
               <p className="text-lg text-gray-600 dark:text-white/60 mb-6">
-                We're not just service providers – we're your strategic partners in growth. From startups to 
-                established enterprises, we tailor our approach to meet your unique needs and objectives.
+                 With years of expertise and a commitment to innovation, we strive to bring your visions to life. Our approach is customer-centric, ensuring every project meets your expectations and beyond. 
               </p>
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
@@ -112,6 +118,20 @@ const About = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+    
+    {/* Our Story Section */}
+    <section className="py-20 bg-transparent backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white/90 mb-4">
+              Our Story
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-white/60 max-w-6xl mx-auto">
+              Plutosolve was founded by two brothers—Rahul Kushwah, a seasoned marketer, and Suraj Kushwah, a full-stack developer, DevOps engineer, and YouTuber. What began as a freelance project quickly grew into a full-scale agency, backed by industry experts and a diverse portfolio. Since our humble beginnings in 2020, we've completed three successful years, worked with 10+ happy clients, and grown a dedicated team of professionals and advisors.
+            </p>
           </div>
         </div>
       </section>
@@ -168,16 +188,17 @@ const About = () => {
                 key={index}
                 className="backdrop-blur-md dark:bg-opacity-10 bg-white dark:bg-black/10 dark:hover:bg-white/10 border hover:border-purple-300 dark:border-white/20 rounded-xl p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-white text-2xl font-bold">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="w-24 h-24 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                  <img src={member.pfp} alt="Photo" style={{borderRadius: "200px"}} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white/90 mb-2">
                   {member.name}
                 </h3>
                 <p className="text-purple-600 font-medium mb-3">
                   {member.role}
+                </p>
+                <p className="text-gray-600 dark:text-white/30">
+                  {member.job}
                 </p>
                 <p className="text-gray-600 dark:text-white/60">
                   {member.bio}

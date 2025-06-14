@@ -16,21 +16,21 @@ const Footer = () => {
                 PlutoSolve
               </span>
             </div>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Innovative solutions for your business challenges. We help companies grow and succeed in the digital age.
+            <p className="text-muted-foreground text-justify mb-6 max-w-md">              
+            Social Media Marketing / SEO Optimization / Digital Marketing / Design & Development / Marketing Solutions / Web Development
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Mail size={16} />
-                <span>hello@plutosolve.com</span>
+                <span>contact@plutosolve.com</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <Phone size={16} />
-                <span>+1 (555) 123-4567</span>
+                <span>+91-8191899099</span>
               </div>
               <div className="flex items-center space-x-2 text-muted-foreground">
                 <MapPin size={16} />
-                <span>123 Business St, City, State 12345</span>
+                <span>Noida, India</span>
               </div>
             </div>
           </div>
@@ -50,10 +50,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-foreground">Services</h3>
             <ul className="space-y-2">
-              <li><span className="text-muted-foreground">Web Development</span></li>
+              <li><span className="text-muted-foreground">Social Media Marketingt</span></li>
+              <li><span className="text-muted-foreground">SEO Optimization</span></li>
               <li><span className="text-muted-foreground">Digital Marketing</span></li>
-              <li><span className="text-muted-foreground">Consulting</span></li>
-              <li><span className="text-muted-foreground">Support</span></li>
+              <li><span className="text-muted-foreground">Design & Development</span></li>
+              <li><span className="text-muted-foreground">Marketing Solutions</span></li>
+              <li><span className="text-muted-foreground">Web Development</span></li>
             </ul>
           </div>
         </div>
