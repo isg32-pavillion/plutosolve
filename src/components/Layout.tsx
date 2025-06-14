@@ -12,11 +12,12 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="plutosolve-ui-theme">
+    <ThemeProvider defaultTheme="light" storageKey="plutosolve-ui-theme">
       <div className="min-h-screen flex flex-col relative bg-background text-foreground">
         <Navbar />
         <main className="flex-grow pt-16 relative z-10">
           <AnimatedBackground />
+          <MouseFollower />
           {children}
           <Footer />
         </main>
