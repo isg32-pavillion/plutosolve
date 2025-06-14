@@ -16,12 +16,13 @@ const Navbar = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const opacity = Math.min(scrollY / 100, 0.95);
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 border-b border-border/40 z-50"
+      className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: `rgba(var(--background) / 0.9)`,
+        background: `rgba(255, 255, 255, ${0.1 + opacity * 0.85})`,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
       }}
@@ -74,7 +75,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/90 backdrop-blur-md border-t border-border/50 rounded-b-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-transparent backdrop-blur-md rounded-b-lg">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -82,7 +83,7 @@ const Navbar = () => {
                   onClick={() => setIsOpen(false)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
                     isActive(item.path)
-                      ? 'text-purple-600 bg-purple-50/80 dark:bg-purple-900/30 dark:text-purple-400'
+                      ? 'text-purple-600 bg-transparent dark:bg-purple-900/30 dark:text-purple-400'
                       : 'text-foreground/70 hover:text-purple-600 hover:bg-muted/50'
                   }`}
                 >

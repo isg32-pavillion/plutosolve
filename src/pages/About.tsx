@@ -46,16 +46,16 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-purple-50 via-blue-50 to-white">
+      <section className="py-20 bg-transparent from-purple-50 via-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               About
               <span className="block bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                 PlutoSolve
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white/60 max-w-3xl mx-auto">
               We're a passionate team of innovators dedicated to helping businesses thrive in the digital age 
               through cutting-edge solutions and exceptional service.
             </p>
@@ -64,18 +64,18 @@ const About = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white/90 mb-6">
                 Our Mission
               </h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 dark:text-white/60 mb-6">
                 At PlutoSolve, we believe that every business deserves access to world-class technology solutions. 
                 Our mission is to bridge the gap between complex technical challenges and practical business outcomes.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 dark:text-white/60 mb-6">
                 We're not just service providers – we're your strategic partners in growth. From startups to 
                 established enterprises, we tailor our approach to meet your unique needs and objectives.
               </p>
@@ -84,30 +84,30 @@ const About = () => {
                   <Target className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Our Goal</h3>
-                  <p className="text-gray-600">Empowering businesses to achieve their full potential</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white/90">Our Goal</h3>
+                  <p className="text-gray-600 dark:text-white/60">Empowering businesses to achieve their full potential</p>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8">
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Company Stats</h3>
+            <div className="bg-gradient-to-br from-purple-100 to-blue-100 dark:from-purple-400 dark:to-blue-400 rounded-2xl p-8">
+              <div className="rounded-xl p-6 shadow-sm">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white dark:font-semibold mb-4">Company Stats</h3>
                 <div className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Founded</span>
-                    <span className="font-semibold">2019</span>
+                    <span className="text-gray-600 dark:text-white">Years in Business</span>
+                    <span className="font-semibold">10</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Team Members</span>
-                    <span className="font-semibold">25+</span>
+                    <span className="text-gray-600 dark:text-white">Clients</span>
+                    <span className="font-semibold">+150</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Projects Delivered</span>
-                    <span className="font-semibold">500+</span>
+                    <span className="text-gray-600 dark:text-white">Projects Delivered</span>
+                    <span className="font-semibold">+500</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Client Retention</span>
-                    <span className="font-semibold">95%</span>
+                    <span className="text-gray-600 dark:text-white">Collaborators</span>
+                    <span className="font-semibold">50</span>
                   </div>
                 </div>
               </div>
@@ -117,13 +117,13 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white/90 mb-4">
               Our Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
               These core principles guide everything we do and shape how we work with our clients and each other.
             </p>
           </div>
@@ -132,15 +132,15 @@ const About = () => {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow duration-300"
+                className="backdrop-blur-md dark:bg-opacity-10 bg-white dark:bg-black/10 dark:hover:bg-white/10 border hover:border-purple-300 dark:border-white/20 rounded-xl p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center text-white mx-auto mb-4">
                   {value.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white/90 mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-white/60">
                   {value.description}
                 </p>
               </div>
@@ -150,13 +150,13 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white/90 mb-4">
               Meet Our Team
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white/60 max-w-2xl mx-auto">
               The talented individuals behind PlutoSolve's success, bringing diverse expertise and 
               shared passion for excellence.
             </p>
@@ -166,20 +166,20 @@ const About = () => {
             {team.map((member, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-300"
+                className="backdrop-blur-md dark:bg-opacity-10 bg-white dark:bg-black/10 dark:hover:bg-white/10 border hover:border-purple-300 dark:border-white/20 rounded-xl p-8 text-center hover:bg-white hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                   <span className="text-white text-2xl font-bold">
                     {member.name.split(' ').map(n => n[0]).join('')}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white/90 mb-2">
                   {member.name}
                 </h3>
                 <p className="text-purple-600 font-medium mb-3">
                   {member.role}
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-white/60">
                   {member.bio}
                 </p>
               </div>
