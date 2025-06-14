@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import '../App.css'
 
 const MouseFollower = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -26,16 +27,17 @@ const MouseFollower = () => {
 
   return (
     <div
-      className={`fixed pointer-events-none z-30 transition-opacity duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
+      className={`fixed glass pointer-events-none z-30 transition-opacity duration-300 ${
+        isVisible ? 'opacity-80' : 'opacity-0'
       }`}
+      
       style={{
-        left: mousePosition.x - 50,
-        top: mousePosition.y - 50,
+        left: mousePosition.x,
+        top: mousePosition.y,
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <div className="w-24 h-24 rounded-full bg-gradient-to-r from-purple-400/20 to-blue-400/20 backdrop-blur-sm border border-white/20 shadow-lg" />
+      <div className="w-24 h-24 glass rounded-full bg-gradient-to-r from-purple-400/20 to-blue-400/20 backdrop-blur-sm border border-white/20 shadow-lg" />
     </div>
   );
 };

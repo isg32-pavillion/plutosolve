@@ -1,10 +1,25 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0rem;
   text-align: center;
 }
-
+.glass{
+  position:fixed;
+  inset:50% auto auto 50%;
+  transform:translate(-50%,-50%);
+  width:22;
+  height:22;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  border:2px solid transparent;
+  box-shadow:0 0 0 2px rgba(255,255,255,.6),0 16px 32px rgba(0,0,0,.12);
+  backdrop-filter:url(#frosted);
+  -webkit-backdrop-filter:url(#frosted);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  outline:0;
+}
 .logo {
   height: 6em;
   padding: 1.5em;

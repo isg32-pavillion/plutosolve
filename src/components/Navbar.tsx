@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import pslogo from '../assets/pslogo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const opacity = Math.min(scrollY / 100, 1);
+  const opacity = Math.min(30 / 100, 1);
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 backdrop-blur-md border-b border-white/10 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 bg-grey-900 bg-opacity-90 border-b border-white/10 z-50 transition-all duration-300"
       style={{
         background: `rgba(255, 255, 255, ${0.1 + opacity * 0.85})`,
         backdropFilter: 'blur(12px)',
@@ -36,8 +37,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">P</span>
+            <div className="w-8 h-8 flex items-center justify-center">
+              <img src={pslogo} alt="pslogo" />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
               PlutoSolve
